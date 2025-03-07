@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manage_lead", "Manage_lead.csproj", "{6F4EA524-6A08-4C3F-8096-6B1695121D5C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{C42020C3-2A11-4A83-A9E8-548A419599F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{B4466813-761D-4E03-A08C-EC124A230DDA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{D7D57C4F-1F22-4BA1-B21D-B04C57956AF6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{AA006EAD-55AD-4775-A4DA-E4C6905D07D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{AF267CF9-78C5-4545-8863-BF9F46897800}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cross Cutting", "Cross Cutting", "{79FF9A57-7E43-4299-A6B0-FB93FE3E511A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F4EA524-6A08-4C3F-8096-6B1695121D5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F4EA524-6A08-4C3F-8096-6B1695121D5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F4EA524-6A08-4C3F-8096-6B1695121D5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F4EA524-6A08-4C3F-8096-6B1695121D5C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6F4EA524-6A08-4C3F-8096-6B1695121D5C} = {C42020C3-2A11-4A83-A9E8-548A419599F9}
+		{AF267CF9-78C5-4545-8863-BF9F46897800} = {D7D57C4F-1F22-4BA1-B21D-B04C57956AF6}
+		{79FF9A57-7E43-4299-A6B0-FB93FE3E511A} = {D7D57C4F-1F22-4BA1-B21D-B04C57956AF6}
+	EndGlobalSection
+EndGlobal

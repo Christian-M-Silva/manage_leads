@@ -1,4 +1,4 @@
-namespace manageLeads
+namespace Manage_lead
 {
     public class WeatherForecast
     {
