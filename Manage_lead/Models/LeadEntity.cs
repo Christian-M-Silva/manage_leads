@@ -12,6 +12,7 @@ namespace Manage_lead.Models
         public required string Category { get; set; }
         public required string Description { get; set; }
         public double Price { get; set; }
+        public double PriceDiscount { get; set; }
         public required StatusLeadEnum Status { get; set; }
         public required string Phone { get; set; } 
         public required string Email { get; set; }
