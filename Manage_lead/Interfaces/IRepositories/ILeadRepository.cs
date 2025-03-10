@@ -6,6 +6,8 @@ namespace Manage_lead.Interfaces.IRepositories
     {
         Task<IEnumerable<LeadEntity>> GetLeadsRepository(StatusLead.StatusLeadEnum status);
         Task<IEnumerable<LeadEntity>> AcceptLeadRepository(Guid id);
+        Task<IEnumerable<LeadEntity>> DescountLeadRepository(Guid id);
+
 
     }
 }
