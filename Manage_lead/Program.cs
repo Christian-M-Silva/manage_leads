@@ -1,4 +1,8 @@
 using Manage_lead.Data;
+using Manage_lead.Data.Repositories;
+using Manage_lead.Interfaces.IRepositories;
+using Manage_lead.Interfaces.IServices;
+using Manage_lead.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +16,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<ILeadRepository, LeadRepository>();
+builder.Services.AddScoped<ILeadService, LeadService>();
 
 var app = builder.Build();
 
