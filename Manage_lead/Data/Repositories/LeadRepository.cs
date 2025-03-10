@@ -27,6 +27,25 @@ namespace Manage_lead.Data.Repositories
             }
         }
 
+        public async Task<LeadEntity> DeclineLeadRepository(Guid id)
+        {
+            try
+            {
+                LeadEntity lead = await IsExistLead(id);
+                lead.Status = StatusLead.StatusLeadEnum.Rejected;
+
+                await _context.SaveChangesAsync();
+
+                return lead;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"{ex.Message}");
+
+                throw new ApplicationException("Error Rejected lead", ex);
+            }
+        }
+
         public async Task<LeadEntity> DescountLeadRepository(Guid id, double price)
         {
             try

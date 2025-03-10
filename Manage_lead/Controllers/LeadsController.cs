@@ -32,10 +32,36 @@ namespace Manage_lead.Controllers
             }
         }
 
-        // PUT api/<LeadsController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("accept/{id}")]
+        public async Task<IActionResult> AcceptLead([FromRoute] Guid id, [FromBody] AcceptLeadRequest request)
         {
+            try
+            {
+
+                var lead = await _leadService.AcceptLeadService(id, request.Price);
+
+                return Ok(lead);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Internal Server Error", error = ex.Message });
+            }
+        }
+
+        [HttpPut("decline/{id}")]
+        public async Task<IActionResult> DeclineLead([FromRoute] Guid id)
+        {
+            try
+            {
+
+                var lead = await _leadService.DeclineLeadService(id);
+
+                return Ok(lead);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Internal Server Error", error = ex.Message });
+            }
         }
 
     }

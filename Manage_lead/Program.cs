@@ -3,6 +3,7 @@ using Manage_lead.Data.Repositories;
 using Manage_lead.Interfaces.IRepositories;
 using Manage_lead.Interfaces.IServices;
 using Manage_lead.Services;
+using Manage_lead.Services.SendGrid;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +20,8 @@ builder.Services.AddDbContext<MyDbContext>(options =>
 
 builder.Services.AddScoped<ILeadRepository, LeadRepository>();
 builder.Services.AddScoped<ILeadService, LeadService>();
+builder.Services.AddSingleton<SendGridService>();
+
 
 var app = builder.Build();
 
