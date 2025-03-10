@@ -30,7 +30,7 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var context = services.GetRequiredService<MyDbContext>();
-    SeedLeads.Initialize(services, context);
+    SeedLeads.Initialize(context);
 }
 
 // Configure the HTTP request pipeline.

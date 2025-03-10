@@ -1,10 +1,7 @@
 ﻿using SendGrid;
 using SendGrid.Helpers.Mail;
-using Microsoft.Extensions.Configuration;
 using Manage_lead.Models;
-using Manage_lead.Migrations;
-using Microsoft.AspNetCore.Http.HttpResults;
-using System.Numerics;
+
 
 namespace Manage_lead.Services.SendGrid
 {

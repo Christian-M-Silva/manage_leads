@@ -1,9 +1,7 @@
 ﻿using Manage_lead.Interfaces.IServices;
 using Manage_lead.Models;
-using Manage_lead.Services;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Manage_lead.Controllers
 {
@@ -12,8 +10,7 @@ namespace Manage_lead.Controllers
     public class LeadsController(ILeadService leadService) : ControllerBase
     {
         private readonly ILeadService _leadService = leadService;
-        // GET: api/<LeadsController>
-        [HttpGet("status/{status}")]
+        [HttpGet("list/{status}")]
         public async Task<IActionResult> GetLeads(string status)
         {
             try

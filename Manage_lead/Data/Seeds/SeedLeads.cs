@@ -4,7 +4,7 @@ namespace Manage_lead.Data.Seeds
 {
     public class SeedLeads
     {
-        public static void Initialize(IServiceProvider serviceProvider, MyDbContext context)
+        public static void Initialize(MyDbContext context)
         {
             if (context.Leads.Any())
             {
@@ -59,7 +59,7 @@ namespace Manage_lead.Data.Seeds
                 }
             );
 
-            context.SaveChanges();  // Salva as mudanças no banco
+            context.SaveChanges();
         }
     }
 }
