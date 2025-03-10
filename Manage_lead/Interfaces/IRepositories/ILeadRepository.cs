@@ -5,8 +5,9 @@ namespace Manage_lead.Interfaces.IRepositories
     public interface ILeadRepository
     {
         Task<IEnumerable<LeadEntity>> GetLeadsRepository(StatusLead.StatusLeadEnum status);
-        Task<IEnumerable<LeadEntity>> AcceptLeadRepository(Guid id);
-        Task<IEnumerable<LeadEntity>> DescountLeadRepository(Guid id);
+        Task<LeadEntity> AcceptLeadRepository(Guid id);
+        Task<LeadEntity> DescountLeadRepository(Guid id, double price);
+        Task<LeadEntity> IsExistLead(Guid id);
 
 
     }
