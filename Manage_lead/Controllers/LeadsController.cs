@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Manage_lead.Interfaces.IServices;
+using Manage_lead.Models;
+using Manage_lead.Services;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -6,26 +9,27 @@ namespace Manage_lead.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LeadsController : ControllerBase
+    public class LeadsController(ILeadService leadService) : ControllerBase
     {
+        private readonly ILeadService _leadService = leadService;
         // GET: api/<LeadsController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        [HttpGet("status/{status}")]
+        public async Task<IActionResult> GetLeads(string status)
         {
-            return new string[] { "value1", "value2" };
-        }
+            try
+            {
+                if (!Enum.TryParse<StatusLead.StatusLeadEnum>(status, true, out var statusEnum))
+                {
+                    return BadRequest(new { message = "Invalid status value. Allowed values: New, Accepted, Rejected." });
+                }
 
-        // GET api/<LeadsController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<LeadsController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
+                var leads = await _leadService.GetLeadsService(statusEnum);
+                return Ok(leads);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Internal Server Error", error = ex.Message });
+            }
         }
 
         // PUT api/<LeadsController>/5
@@ -34,10 +38,5 @@ namespace Manage_lead.Controllers
         {
         }
 
-        // DELETE api/<LeadsController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }
