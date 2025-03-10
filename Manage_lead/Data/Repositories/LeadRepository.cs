@@ -8,7 +8,7 @@ namespace Manage_lead.Data.Repositories
     {
         private readonly MyDbContext _context = context;
 
-        public async Task<IEnumerable<LeadEntity>> GetLeads(StatusLead.StatusLeadEnum status)
+        public async Task<IEnumerable<LeadEntity>> GetLeadsRepository(StatusLead.StatusLeadEnum status)
         {
             try
             {
