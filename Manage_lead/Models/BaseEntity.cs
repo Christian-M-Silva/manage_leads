@@ -15,5 +15,7 @@ namespace Manage_lead.Models
             set { _createdAt = value == null ? DateTime.UtcNow : value; }
         }
 
+        public DateTime? UpdateAt { get; set; }
+
     }
 }

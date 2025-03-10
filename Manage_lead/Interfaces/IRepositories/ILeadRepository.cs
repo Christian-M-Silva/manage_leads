@@ -4,6 +4,6 @@ namespace Manage_lead.Interfaces.IRepositories
 {
     public interface ILeadRepository
     {
-        Task<IEnumerable<LeadEntity>> GetLeads(StatusLead status);
+        Task<IEnumerable<LeadEntity>> GetLeads(StatusLead.StatusLeadEnum status);
     }
 }
