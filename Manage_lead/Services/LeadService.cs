@@ -17,7 +17,7 @@ namespace Manage_lead.Services
                 await _leadRepository.DescountLeadRepository(id, price);
             }
             LeadEntity lead = await _leadRepository.AcceptLeadRepository(id);
-            await _sendGridService.SendEmailAsync("vendas@test.com", "Accept Lead");
+            await _sendGridService.SendEmailAsync("vendas@test.com", lead);
 
             return lead;
         }
