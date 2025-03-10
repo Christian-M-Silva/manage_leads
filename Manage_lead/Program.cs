@@ -1,5 +1,6 @@
 using Manage_lead.Data;
 using Manage_lead.Data.Repositories;
+using Manage_lead.Data.Seeds;
 using Manage_lead.Interfaces.IRepositories;
 using Manage_lead.Interfaces.IServices;
 using Manage_lead.Services;
@@ -24,6 +25,13 @@ builder.Services.AddSingleton<SendGridService>();
 
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<MyDbContext>();
+    SeedLeads.Initialize(services, context);
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
