@@ -19,6 +19,10 @@ namespace Manage_lead.Data.Repositories
 
                 return lead;
             }
+            catch (ApplicationException ex)
+            {
+                throw new ApplicationException($"Application Error: {ex.Message}");
+            }
             catch (Exception ex)
             {
                 Console.WriteLine($"{ex.Message}");
@@ -37,6 +41,10 @@ namespace Manage_lead.Data.Repositories
                 await _context.SaveChangesAsync();
 
                 return lead;
+            }
+            catch (ApplicationException ex)
+            {
+                throw new ApplicationException($"Application Error: {ex.Message}");
             }
             catch (Exception ex)
             {
@@ -61,6 +69,10 @@ namespace Manage_lead.Data.Repositories
 
                 return lead;
             }
+            catch (ApplicationException ex)
+            {
+                throw new ApplicationException($"Application Error: {ex.Message}");
+            }
             catch (Exception ex)
             {
                 Console.WriteLine($"{ex.Message}");
@@ -69,7 +81,7 @@ namespace Manage_lead.Data.Repositories
             }
         }
 
-        public async Task<IEnumerable<LeadEntity>> GetLeadsRepository(StatusLead.StatusLeadEnum status)
+        public async Task<IEnumerable<LeadEntity>> GetLeadsRepository(StatusLead.StatusLeadEnum status = StatusLead.StatusLeadEnum.New)
         {
             try
             {
@@ -78,6 +90,10 @@ namespace Manage_lead.Data.Repositories
                     .ToListAsync();
 
                 return leads;
+            }
+            catch (ApplicationException ex) 
+            {
+                throw new ApplicationException($"Application Error: {ex.Message}");
             }
             catch (Exception ex)
             {
