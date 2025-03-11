@@ -1,4 +1,4 @@
-using Manage_lead.Data;
+﻿using Manage_lead.Data;
 using Manage_lead.Data.Repositories;
 using Manage_lead.Data.Seeds;
 using Manage_lead.Interfaces.IRepositories;
@@ -28,6 +28,17 @@ var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
+    var dbContext = scope.ServiceProvider.GetRequiredService<MyDbContext>();
+
+    Console.WriteLine("🔄 Restaurando dependências...");
+    var process = System.Diagnostics.Process.Start("dotnet", "restore");
+    process.WaitForExit();
+
+    Console.WriteLine("📦 Aplicando migrations...");
+    dbContext.Database.Migrate();
+
+    Console.WriteLine("🚀 Iniciando a aplicação...");
+
     var services = scope.ServiceProvider;
     var context = services.GetRequiredService<MyDbContext>();
     SeedLeads.Initialize(context);
