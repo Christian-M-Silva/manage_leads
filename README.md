@@ -11,7 +11,7 @@
    - Se o SQL Server foi instalado de forma padrão, a string de conexão não precisa ser alterada.
 
 2. **API Key para Envio de E-mails**
-   - No arquivo `appsettings.json`, utilize a chave de API para testes enviado no arquivo .txt junto com o link desse repositorio.
+   - No arquivo `appsettings.json`, utilize a chave de API para testes enviado no arquivo `.txt` junto com o link desse repositorio.
    - O limite de envio é **100 e-mails por dia**.
 
 ## Acesso ao Swagger
