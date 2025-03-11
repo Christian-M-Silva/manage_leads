@@ -30,18 +30,16 @@ using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<MyDbContext>();
 
-    Console.WriteLine("🔄 Restaurando dependências...");
+    Console.WriteLine("🔄 Restore dependencies...");
     var process = System.Diagnostics.Process.Start("dotnet", "restore");
     process.WaitForExit();
 
-    Console.WriteLine("📦 Aplicando migrations...");
+    Console.WriteLine("📦 Apply migrations...");
     dbContext.Database.Migrate();
 
-    Console.WriteLine("🚀 Iniciando a aplicação...");
+    Console.WriteLine("🚀 Start Application...");
 
-    var services = scope.ServiceProvider;
-    var context = services.GetRequiredService<MyDbContext>();
-    SeedLeads.Initialize(context);
+    SeedLeads.Initialize(dbContext);
 }
 
 // Configure the HTTP request pipeline.
